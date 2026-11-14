@@ -1,0 +1,26 @@
+# Credenciais Wi-Fi do ESP32 (em qualquer pasta)
+secrets.h
+
+# Banco de dados SQLite
+*.db
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Arquivos de ambiente
+.env
+
+# Arquivos temporários
+*.log
+.DS_Store
+Thumbs.db
+
+# Arquivos de compilação
+build/
+.pio/

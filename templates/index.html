@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estufa Inteligente | Monitoramento</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">E</div>
+            <div>
+                <strong>ESTUFA</strong>
+                <span>MONITORAMENTO</span>
+            </div>
+        </div>
+
+        <div class="menu-label">MENU PRINCIPAL</div>
+
+        <nav>
+            <a href="#inicio" class="menu-item ativo">
+                <span>▦</span> Visão geral
+            </a>
+            <a href="#sensores" class="menu-item">
+                <span>◉</span> Sensores
+            </a>
+            <a href="#equipamentos" class="menu-item">
+                <span>⌁</span> Equipamentos
+            </a>
+            <a href="#historico" class="menu-item">
+                <span>▤</span> Histórico
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="footer-indicator"></div>
+            <div>
+                <strong>Estufa acadêmica</strong>
+                <span>Sistema IoT</span>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar" id="inicio">
+            <div>
+                <div class="breadcrumb">PAINEL / VISÃO GERAL</div>
+                <h1>Monitoramento da estufa</h1>
+                <p>Acompanhe as condições ambientais e os equipamentos.</p>
+            </div>
+
+            <div class="connection">
+                <span class="ponto"></span>
+                <span id="textoStatus">Conectando...</span>
+            </div>
+        </header>
+
+        <section class="section" id="sensores">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Condições ambientais</h2>
+                    <p>Leituras dos sensores em tempo real</p>
+                </div>
+                <span class="update-time" id="atualizado">
+                    Atualizado: --
+                </span>
+            </div>
+
+            <div class="sensor-grid">
+
+                <article class="card sensor-card soil-card">
+                    <div class="sensor-heading">
+                        <span class="sensor-icon soil-icon">SO</span>
+                        <span class="sensor-label">Umidade do solo</span>
+                    </div>
+
+                    <div class="soil-content">
+                        <div class="sensor-value">
+                            <b id="soloValor">--</b><small>%</small>
+                        </div>
+                        <span class="sensor-description">
+                            Sensor capacitivo
+                        </span>
+                    </div>
+
+                    <div class="sensor-footer">
+                        <span class="status-text" id="soloEstado">--</span>
+                        <span>Condição do solo</span>
+                    </div>
+                </article>
+
+                <article class="card sensor-card">
+                    <div class="sensor-heading">
+                        <span class="sensor-icon air-icon">AR</span>
+                        <span class="sensor-label">Umidade do ar</span>
+                    </div>
+
+                    <div class="sensor-value">
+                        <b id="arValor">--</b><small>%</small>
+                    </div>
+
+                    <span class="sensor-description">Sensor DHT11</span>
+                    <div class="sensor-footer">
+                        <span>Ambiente</span>
+                        <span>Umidade relativa</span>
+                    </div>
+                </article>
+
+                <article class="card sensor-card">
+                    <div class="sensor-heading">
+                        <span class="sensor-icon temp-icon">°C</span>
+                        <span class="sensor-label">Temperatura</span>
+                    </div>
+
+                    <div class="sensor-value">
+                        <b id="tempValor">--</b><small>°C</small>
+                    </div>
+
+                    <span class="sensor-description">Sensor DHT11</span>
+                    <div class="sensor-footer">
+                        <span>Ambiente</span>
+                        <span>Temperatura atual</span>
+                    </div>
+                </article>
+
+                <article class="card sensor-card">
+                    <div class="sensor-heading">
+                        <span class="sensor-icon light-icon">LU</span>
+                        <span class="sensor-label">Luminosidade</span>
+                    </div>
+
+                    <div class="sensor-value">
+                        <b id="luzValor">--</b><small>%</small>
+                    </div>
+
+                    <span class="sensor-description">Sensor BH1750</span>
+                    <div class="sensor-footer">
+                        <span>Iluminação</span>
+                        <span>Intensidade relativa</span>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section" id="equipamentos">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Controle dos equipamentos</h2>
+                    <p>Gerenciamento da irrigação e iluminação</p>
+                </div>
+            </div>
+
+            <div class="equipment-grid">
+
+                <article class="card equipment-card" id="cardBomba">
+                    <div class="equipment-header">
+                        <div class="equipment-icon pump-icon">B</div>
+                        <div>
+                            <h3>Bomba d'água</h3>
+                            <p>Controle de irrigação</p>
+                        </div>
+                        <span class="equipment-indicator"></span>
+                    </div>
+
+                    <div class="equipment-status">
+                        <strong id="bombaEstado">--</strong>
+                        <span id="bombaModo">--</span>
+                    </div>
+
+                    <div class="botoes">
+                        <button class="botao botao-ligar"
+                            data-rota="bomba" data-acao="ligar">
+                            Ligar
+                        </button>
+
+                        <button class="botao botao-desligar"
+                            data-rota="bomba" data-acao="desligar">
+                            Desligar
+                        </button>
+
+                        <button class="botao botao-auto"
+                            data-rota="bomba" data-acao="auto">
+                            Automático
+                        </button>
+                    </div>
+                </article>
+
+                <article class="card equipment-card" id="cardLuz">
+                    <div class="equipment-header">
+                        <div class="equipment-icon lamp-icon">L</div>
+                        <div>
+                            <h3>Luminária</h3>
+                            <p>Controle de iluminação</p>
+                        </div>
+                        <span class="equipment-indicator"></span>
+                    </div>
+
+                    <div class="equipment-status">
+                        <strong id="luzEstado">--</strong>
+                        <span id="luzModo">--</span>
+                    </div>
+
+                    <div class="botoes">
+                        <button class="botao botao-ligar"
+                            data-rota="luz" data-acao="ligar">
+                            Ligar
+                        </button>
+
+                        <button class="botao botao-desligar"
+                            data-rota="luz" data-acao="desligar">
+                            Desligar
+                        </button>
+
+                        <button class="botao botao-auto"
+                            data-rota="luz" data-acao="auto">
+                            Automático
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="section" id="historico">
+            <div class="card history-card">
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Histórico de monitoramento</h2>
+                        <p>Comportamento das variáveis ambientais</p>
+                    </div>
+                </div>
+
+                <div class="grafico-topo">
+                    <div class="filtros" id="filtroSeries">
+                        <button class="filtro ativo"
+                            data-serie="solo_pct"
+                            style="--cor:#38845A">Solo</button>
+
+                        <button class="filtro ativo"
+                            data-serie="umidade_ar"
+                            style="--cor:#5286C7">Ar</button>
+
+                        <button class="filtro ativo"
+                            data-serie="luminosidade_pct"
+                            style="--cor:#C49A45">Luz</button>
+                    </div>
+
+                    <div class="filtros" id="filtroPeriodos">
+                        <button class="filtro" data-horas="0.25">15 min</button>
+                        <button class="filtro ativo" data-horas="1">1 hora</button>
+                        <button class="filtro" data-horas="6">6 horas</button>
+                        <button class="filtro" data-horas="24">24 horas</button>
+                    </div>
+                </div>
+
+                <div class="grafico-area">
+                    <canvas id="grafico"></canvas>
+                    <div id="dica"></div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="page-footer">
+            Sistema de monitoramento de estufa inteligente
+            <span>Projeto acadêmico • IoT</span>
+        </footer>
+
+    </main>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
