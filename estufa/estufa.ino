@@ -7,7 +7,7 @@
 #include <BH1750.h>
 #include <HTTPClient.h>
 
-const char* SERVIDOR = "http://192.168.137.1:5000/api/leituras";  // IP do notebook
+const char* SERVIDOR = SERVIDOR_URL;  
 
 #define DHTPIN 4
 #define DHTTYPE DHT11   

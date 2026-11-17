@@ -129,7 +129,7 @@ O banco `estufa.db` é criado automaticamente na primeira execução.
 
 1. Na Arduino IDE, instale o suporte à placa **ESP32** (pacote da Espressif).
 2. No Gerenciador de Bibliotecas, instale **DHT sensor library**, **Adafruit Unified Sensor** e **BH1750**.
-3. Na pasta `firmware`, copie `secrets.example.h` para `secrets.h`.
+3. Na pasta `estufa`, copie `secrets.example.h` para `secrets.h`.
 4. No `secrets.h`, informe o nome e a senha do Wi-Fi e, em `SERVIDOR_URL`, o IP do computador que executa o servidor, por exemplo `http://192.168.0.10:5000/api/leituras`.
 5. Abra `estufa.ino`, selecione a placa ESP32 e envie o programa.
 6. Abra o Monitor Serial em 115200. A mensagem `Servidor: codigo 200` deve aparecer a cada segundo.

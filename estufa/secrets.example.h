@@ -1,2 +1,3 @@
 #define WIFI_SSID "NOME_DA_SUA_REDE"
 #define WIFI_PASSWORD "SENHA_DA_SUA_REDE"
+#define SERVIDOR_URL "http://192.168.0.10:5000/api/leituras"
