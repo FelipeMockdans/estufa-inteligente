@@ -89,7 +89,7 @@ No dashboard, cada equipamento pode ficar em modo **automático** (decide pelos 
 ```text
 estufa-inteligente/
 │
-├── firmware/
+├── estufa/
 │   ├── estufa.ino
 │   └── secrets.example.h
 │
